@@ -1,0 +1,13 @@
+logs:
+    - name: root
+      level: info
+      appenders:
+          - type: FileLogAppender
+            file: /apps/logs/yhchaos/root.txt
+          - type: StdoutLogAppender
+    - name: system
+      level: info
+      appenders:
+          - type: FileLogAppender
+            file: /apps/logs/yhchaos/system.txt
+          - type: StdoutLogAppender
