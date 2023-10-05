@@ -2,7 +2,7 @@
 c++高性能分布式服务器
 ## 1. 日志模块
 
-YHCHAOS框架拥有强大的日志模块，支持流式和格式化两种日志写入风格，还提供了日志格式、日志级别、多通道日志等自定义功能。
+日志模块，支持流式和格式化两种日志写入风格，还提供了日志格式、日志级别、多通道日志等自定义功能。
 
 流式日志的使用方式如下：
 
@@ -20,7 +20,7 @@ YHCHAOS_LOG_FMT_INFO(g_logger, "%s", "使用格式化日志");
 
 ## 2. 配置模块
 
-YHCHAOS框架采用了约定优于配置的理念，允许用户定义配置项而无需单独解析配置文件。配置使用YAML文件格式，并支持各种数据类型、STL容器（如vector、list、set、map）以及自定义类型的配置。
+允许用户定义配置项而无需单独解析配置文件。配置使用YAML文件格式，并支持各种数据类型、STL容器（如vector、list、set、map）以及自定义类型的配置。
 
 配置项的定义方式如下：
 
@@ -41,15 +41,15 @@ tcp:
 
 ## 3. 线程模块
 
-YHCHAOS框架的线程模块封装了pthread库中的一些常用功能，包括Thread、Semaphore、Mutex、RWMutex、Spinlock等对象，使线程操作更加便捷。不采用C++11线程的原因在于，C++11线程本质上也是基于pthread实现的。此外，C++11标准库中未提供读写互斥锁（RWMutex）和自旋锁（Spinlock）等在高并发场景中常用的功能，因此选择了自行封装pthread。
+线程模块封装了pthread库中的一些常用功能，包括Thread、Semaphore、Mutex、RWMutex、Spinlock等对象，使线程操作更加便捷。不采用C++11线程的原因在于，C++11线程本质上也是基于pthread实现的。此外，C++11标准库中未提供读写互斥锁（RWMutex）和自旋锁（Spinlock）等在高并发场景中常用的功能，因此选择了自行封装pthread。
 
 ## 4. 协程模块
 
-YHCHAOS框架引入协程的概念，协程是一种轻量级的用户态线程，相当于线程中的线程。它可以将复杂的异步调用封装成同步操作，降低业务逻辑的复杂性。当前版本的协程模块基于ucontext_t实现，未来计划支持采用boost.context的方式实现。
+引入协程的概念，协程是一种轻量级的用户态线程，相当于线程中的线程。它可以将复杂的异步调用封装成同步操作，降低业务逻辑的复杂性。当前版本的协程模块基于ucontext_t实现，未来计划支持采用boost.context的方式实现。
 
 ## 5. 协程调度模块
 
-协程调度器是YHCHAOS框架的核心组件，用于管理协程的调度。它内部使用线程池实现，支持协程在多线程中切换，也可以指定协程在特定线程中执行。这种调度模型是一种N-M的协程调度模型，其中N个线程管理M个协程，以最大程度地充分利用每个线程的执行能力。
+协程调度器是核心组件，用于管理协程的调度。它内部使用线程池实现，支持协程在多线程中切换，也可以指定协程在特定线程中执行。这种调度模型是一种N-M的协程调度模型，其中N个线程管理M个协程，以最大程度地充分利用每个线程的执行能力。
 
 ## 6. IO协程调度模块
 
@@ -61,7 +61,7 @@ Hook模块用于拦截和修改系统底层的socket相关API、socket IO相关A
 
 ## 8. Socket模块
 
-YHCHAOS框架封装了Socket类，提供了所有socket API的功能。它还统一封装了地址类，包括IPv4、IPv6和Unix地址，并提供了域名解析和IP解析的功能。
+封装了Socket类，提供了所有socket API的功能。它还统一封装了地址类，包括IPv4、IPv6和Unix地址，并提供了域名解析和IP解析的功能。
 
 ## 9. ByteArray序列化模块
 
@@ -77,7 +77,7 @@ Stream模块封装了统一的流式接口，使文件和Socket等资源可以�
 
 ## 12. HTTP模块
 
-YHCHAOS框架采用Ragel有限状态机实现了HTTP/1.1协议和URI解析。该模块基于SocketStream实现了HttpConnection（HTTP客户端）和HttpSession（HTTP服务器端连接）。此外，基于TcpServer实现了HttpServer，提供了完整的HTTP客户端API请求和HTTP服务器功能。
+采用Ragel有限状态机实现了HTTP/1.1协议和URI解析。该模块基于SocketStream实现了HttpConnection（HTTP客户端）和HttpSession（HTTP服务器端连接）。此外，基于TcpServer实现了HttpServer，提供了完整的HTTP客户端API请求和HTTP服务器功能。
 
 ## 13. Servlet模块
 
